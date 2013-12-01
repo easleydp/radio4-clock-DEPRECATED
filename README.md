@@ -9,6 +9,5 @@ Supported browsers: Uses the HTML5 canvas element. Should work in any modern web
 
 Accuracy: The clock simply echoes that of the client machine. Where ultimate precision is needed (as in the Today studio) the computer's clock should be synchronised with a reliable time server, such as ntp2d.mcc.ac.uk
 
-today-clock.js depends on JQuery. A copy of jquery-1.4.2.min.js is included. Alternatively, include this script tag in your HTML file:
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+today-clock.js depends on JQuery. A copy of jquery-1.4.2.min.js is included. Alternatively, include this script tag in your HTML file:<pre>   &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt;</pre>
 
