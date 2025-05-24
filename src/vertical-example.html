@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Clock (vertical)</title>
+    <meta name="description" content="Canvas clock" />
+    <meta name="author" content="David Easley, https://github.com/easleydp" />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0px;
+      }
+
+      .today-clock {
+        width: 1px;
+        height: 1px;
+        margin: 10px;
+      }
+      .today-tell-time {
+        width: 1px;
+        height: 1px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <div style="display: inline-block">
+        <div class="today-clock"></div>
+        <div class="today-tell-time"></div>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script>
+      !window.jQuery &&
+        document.write('<script src="jquery-1.4.2.min.js"><\/script>');
+    </script>
+
+    <script src="today-clock.js?v=1"></script>
+
+    <script>
+      $(document).ready(function () {
+        var resize = function () {
+          var w = $(window).width(),
+            h = $(window).height(), // Viewport dimensions
+            d1 = $(".today-clock"),
+            d2 = $(".today-tell-time"),
+            d1wh,
+            d2h;
+
+          if (h / w < 4 / 3) {
+            // Excess width. Restrict combined height of our divs to viewport height.
+            d1wh = (h * 3) / 4;
+            d2h = h / 4;
+          } else {
+            // Excess height. Restrict width of our divs to viewport width.
+            d1wh = w;
+            d2h = w / 3;
+          }
+
+          // Allow for our margins
+          d1wh -= 24;
+          d2h -= 24;
+
+          d1.css({
+            width: d1wh + "px",
+            height: d1wh + "px",
+          });
+          d2.css({
+            width: d1wh + "px",
+            height: d2h + "px",
+          });
+        };
+
+        $(window).resize(resize);
+
+        // Fire a resize event
+        var evt = document.createEvent("UIEvents");
+        evt.initUIEvent("resize", true, false, window, 0);
+        window.dispatchEvent(evt);
+      });
+    </script>
+  </body>
+</html>
