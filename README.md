@@ -1,4 +1,4 @@
-# radio4-clock
+# DEPRECATED
 
 **NOTE**: This project is old. Deprecated in favour of https://github.com/easleydp/cylinder-clock
 
